@@ -1,7 +1,7 @@
-public class AccountModel {
+public class WelcomeModel {
 
     private int numOfAccounts;
-    public AccountModel(){
+    public WelcomeModel(){
         numOfAccounts = 0;
     }
 
