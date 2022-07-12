@@ -20,10 +20,10 @@ public class MenuListener implements ActionListener
             this.helpMenu.setVisible(true);
         }
         else if(actionCommand.equals("Exit")){
-        System.exit(0);
+            System.exit(0);
         }
         else{
-        System.out.println("ERROR: unknown action command.");
+            System.out.println("ERROR: unknown action command.");
         }
     }
 }

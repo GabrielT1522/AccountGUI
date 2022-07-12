@@ -30,6 +30,7 @@ public class DefaultFrame extends JFrame
         helpMenu.add(aboutItem);
         // Create a listener and add it to the menu items
         MenuListener menuList = new MenuListener(this);
+        exitItem.addActionListener(menuList);
         helpItem.addActionListener(menuList);
 
         //this.setResizable(false);

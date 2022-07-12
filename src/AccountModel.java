@@ -107,26 +107,25 @@ public class AccountModel
                               double balance, int accType, double extraCharge)
     {
         // Validate initial Balance
-        do {
-            System.out.print("Enter the initial balance: ");
-            this.setBalance(balance);
-            try {
-                if (this.balance < 0.0)
-                    System.out.println("Deposit amount must be positive.");
-            } catch (Exception e) {
-                System.out.println("Exception: Deposit amount must be positive.");
-            }
-        } while (getBalance() < 0.0);
-
+        setBalance(balance);
+        try {
+            if (balance < 0.0)
+                System.out.println("Deposit amount must be positive.");
+        } catch (Exception e) {
+            throw new RuntimeException("Exception: Deposit amount must be positive.");
+        }
+        System.out.println("\nInitial balance: "+getBalance());
         String fullName = firstName+" "+lastName;
+
+
         // Create type of account based on user input
         if (accType == 1) {
-            System.out.print("Enter the fee: ");
             this.fee = extraCharge;
+            System.out.println("Fee Amount: "+getFee());
             accountArrayList.add(new CheckingAccount(fullName, balance, extraCharge));
         } else if (accType == 2) {
-            System.out.print("Enter the interest rate: ");
             this.interest = extraCharge;
+            System.out.println("Interest Rate: "+getInterest());
             accountArrayList.add(new SavingAccount(fullName, balance, extraCharge));
         }
     } // END OF inputAccounts
@@ -137,33 +136,48 @@ public class AccountModel
         SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
         Date date = new Date();
         String currentDate = formatter.format(date);
+        int counter = getAccountIndex();
 
-        int counter = 1;
-        for (Account account : accountArrayList) {
             try {
+
                 FileWriter newReceipt = new FileWriter("Account" + counter + "Receipt.txt");
-                double newBalance;
-                newBalance = getBalance() + deposit;
-                newBalance -= withdraw;
+                double oldBalance = accountArrayList.get(counter-1).getBalance();
+                accountArrayList.get(counter-1).credit(deposit);
+                accountArrayList.get(counter-1).debit(withdraw);
+                double newBalance = accountArrayList.get(counter-1).getBalance();
 
                 newReceipt.write("----------------------------------------\n");
                 newReceipt.write("Account "+counter+" Receipt\n\n");
                 newReceipt.write("Date of transaction: " + currentDate);
-                newReceipt.write("\nAccount Holder Name: " + account.getName());
+                newReceipt.write("\nAccount Holder Name: " + accountArrayList.get(counter-1).getName());
+                if (getAccType() == 1){
+                    newReceipt.write("\nAccount Type: Checking");
+                } else if (getAccType() == 2){
+                    newReceipt.write("\nAccount Type: Savings");
+                } else { newReceipt.write("\nError getting account type.");}
                 newReceipt.write("\n\nAmount withdrawn: $"+withdraw);
                 newReceipt.write("\nAmount deposited: $"+deposit);
-                newReceipt.write("\n\nPrevious balance: $" + df.format(account.getBalance()));
+                // try/catch runs only if account is SavingAccount
+                try{
+                    double interest = ((SavingAccount) accountArrayList.get(counter-1)).calculateInterest();
+                    newReceipt.write("\nAccumulated interest: $" + df.format(interest));
+                    newBalance += interest;
+                }
+                catch (Exception e){
+                    newReceipt.write("\nAccount fee: "+getFee());
+                    newBalance += getFee();
+                }
+                newReceipt.write("\n\nPrevious balance: $" + df.format(oldBalance));
                 newReceipt.write("\n ---");
                 newReceipt.write("\nCurrent balance: $" + df.format(newBalance));
                 newReceipt.write("\n----------------------------------------");
                 newReceipt.close();
-                System.out.println("\n\nSuccessfully wrote to the file: Account"+counter+"Receipt.txt");
+                System.out.println("\nSuccessfully wrote to the file: Account"+counter+"Receipt.txt\n");
             } catch (IOException e) {
                 System.out.println("An error occurred.");
                 e.printStackTrace();
                 throw new RuntimeException(e);
             }
-            counter++;
-        }
+
     }
 }

@@ -17,7 +17,7 @@ public class AccountPanel extends JPanel {
     private JLabel welcomeMessage;
     private JLabel numOfAccountsLabel;
     private JLabel accountsToBeCreatedLabel;
-    private JButton welcomeSubmitButton;
+    private JButton welcomeButton;
     private JTextField noOfAccountsField;
 
     // inputPanel components
@@ -75,35 +75,30 @@ public class AccountPanel extends JPanel {
 
         noOfAccountsField = new JTextField();
         noOfAccountsField.setPreferredSize(new Dimension(50, 35));
-        welcomeSubmitButton = new JButton("Submit");
+        welcomeButton = new JButton("Create Accounts");
 
         //welcomeSouthPanel.setLayout(new BoxLayout(welcomeSouthPanel, BoxLayout.Y_AXIS));
         welcomeSouthPanel.setBackground(Color.lightGray);
         welcomeSouthPanel.add(noOfAccountsField);
-        welcomeSouthPanel.add(welcomeSubmitButton);
+        welcomeSouthPanel.add(welcomeButton);
         welcomeSouthPanel.add(accountsToBeCreatedLabel);
 
-        welcomeSubmitButton.addActionListener(evt -> {
+        welcomeButton.addActionListener(evt -> {
             String actionCommand = evt.getActionCommand();
-            if (actionCommand.equals("Submit")) {
-                System.out.println("Num of accounts: " + accountModel.getNumOfAccounts());
-                System.out.println("Submit button selected.");
+            if (actionCommand.equals("Create Accounts")) {
 
                 int numOfAccounts = Integer.parseInt(noOfAccountsField.getText());
                 accountModel.setNumOfAccounts(numOfAccounts);
-                setAccountNumLabel(numOfAccounts);
 
-                if (actionCommand.equals("Submit")) {
-                    System.out.println("Submit button selected.");
-
-                    if (accountModel.getNumOfAccounts() == 1) {
-                        accountsToBeCreatedLabel.setText(numOfAccounts + " account will be created.");
-                        System.out.println(numOfAccounts + " account will be created.");
-                    } else if (numOfAccounts > 1) {
-                        accountsToBeCreatedLabel.setText(numOfAccounts + " accounts will be created.");
-                        System.out.println(numOfAccounts + " accounts will be created.");
-                    }
+                if (accountModel.getNumOfAccounts() == 1) {
+                    accountsToBeCreatedLabel.setText(numOfAccounts + " account will be created.");
+                    System.out.println(numOfAccounts + " account will be created.\n");
+                } else if (numOfAccounts > 1) {
+                    accountsToBeCreatedLabel.setText(numOfAccounts + " accounts will be created.");
+                    System.out.println(numOfAccounts + " accounts will be created.\n");
                 }
+
+                setAccountNumLabel(numOfAccounts);
             }
         });
 
@@ -207,11 +202,12 @@ public class AccountPanel extends JPanel {
             processAccount();
 
             if (actionCommand.equals("Submit")) {
-                System.out.println("Num of accounts: "+accountModel.getNumOfAccounts());
                 System.out.println("Submit button selected.");
 
+                accountModel.printReceipt(accountArrayList, accountModel.getWithdraw(), accountModel.getDeposit());
                 accountModel.incrementAccount();
 
+                // Reset and Update Fields
                 setAccountNumLabel(accountModel.getNumOfAccounts());
                 fNameField.setText("");
                 lNameField.setText("");
@@ -270,7 +266,6 @@ public class AccountPanel extends JPanel {
     }
 
     public void processAccount() {
-        int arraySize = accountModel.getNumOfAccounts();
         int accType = accountModel.getAccType();
         int alterBalanceType = accountModel.getAlterBalanceType();
         String firstName = fNameField.getText();
@@ -293,19 +288,11 @@ public class AccountPanel extends JPanel {
         if (alterBalanceType == 1) {
             accountModel.setWithdraw(alterBalance);
             accountModel.setDeposit(0.00);
-        } else {
-            System.out.println("Error setting alterBalanceType.");
-        }
-
-        if (alterBalanceType == 2) {
+        } else if (alterBalanceType == 2) {
             accountModel.setDeposit(alterBalance);
             accountModel.setWithdraw(0.00);
         } else {
             System.out.println("Error setting alterBalanceType.");
-        }
-
-        if (accountModel.getAccountIndex() == arraySize){
-            accountModel.printReceipt(accountArrayList, accountModel.getWithdraw(), accountModel.getDeposit());
         }
     }
 
