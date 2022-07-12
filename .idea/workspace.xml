@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d018164f-13a9-48be-9a6e-dc99e6a24d6b" name="Changes" comment="Pending Output">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AccountDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AccountDriver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AccountModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AccountModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AccountPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AccountPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DefaultFrame/DefaultFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DefaultFrame/DefaultFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DefaultFrame/MenuListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DefaultFrame/MenuListener.java" afterDir="false" />
-    </list>
+    <list default="true" id="d018164f-13a9-48be-9a6e-dc99e6a24d6b" name="Changes" comment="Working Program" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -83,7 +76,7 @@
       <option name="presentableId" value="Default" />
       <updated>1657567153525</updated>
       <workItem from="1657567154765" duration="5075000" />
-      <workItem from="1657578849235" duration="13004000" />
+      <workItem from="1657578849235" duration="13392000" />
     </task>
     <task id="LOCAL-00001" summary="Create Default Program">
       <created>1657568961274</created>
@@ -106,7 +99,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657585861585</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Working Program">
+      <created>1657595996541</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1657595996541</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -127,6 +127,7 @@
     <MESSAGE value="Create Default Program" />
     <MESSAGE value="Made working data transfer" />
     <MESSAGE value="Pending Output" />
-    <option name="LAST_COMMIT_MESSAGE" value="Pending Output" />
+    <MESSAGE value="Working Program" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working Program" />
   </component>
 </project>
