@@ -7,6 +7,7 @@
     <list default="true" id="d018164f-13a9-48be-9a6e-dc99e6a24d6b" name="Changes" comment="Working Program with Load File">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DefaultFrame/DefaultFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DefaultFrame/DefaultFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DefaultFrame/MenuListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DefaultFrame/MenuListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +88,8 @@
       <workItem from="1657597186871" duration="5263000" />
       <workItem from="1657602784852" duration="1034000" />
       <workItem from="1657635631111" duration="3893000" />
-      <workItem from="1657640632229" duration="332000" />
+      <workItem from="1657640632229" duration="471000" />
+      <workItem from="1657648566885" duration="1832000" />
     </task>
     <task id="LOCAL-00001" summary="Create Default Program">
       <created>1657568961274</created>
@@ -138,7 +140,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657639863528</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Working Program with Load File">
+      <created>1657641008850</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1657641008850</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

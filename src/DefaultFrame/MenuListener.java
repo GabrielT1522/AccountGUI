@@ -18,6 +18,7 @@ public class MenuListener implements ActionListener
             case "About" -> defaultFrame.openAbout();
             case "Help" -> defaultFrame.openHelp();
             case "Load" -> defaultFrame.openFile();
+            case "Calculator" -> defaultFrame.openCalculator();
             case "Exit" -> System.exit(0);
             default -> System.out.println("ERROR: unknown action command.");
         }
