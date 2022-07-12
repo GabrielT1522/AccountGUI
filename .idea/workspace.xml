@@ -4,14 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d018164f-13a9-48be-9a6e-dc99e6a24d6b" name="Changes" comment="Working Program">
+    <list default="true" id="d018164f-13a9-48be-9a6e-dc99e6a24d6b" name="Changes" comment="Working Program with Load File">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/About.txt" beforeDir="false" afterPath="$PROJECT_DIR$/About.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AccountDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AccountDriver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AccountFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AccountFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AccountModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AccountModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AccountPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AccountPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BankAccountProgram/SavingAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BankAccountProgram/SavingAccount.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DefaultFrame/DefaultFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DefaultFrame/DefaultFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -92,7 +86,8 @@
       <workItem from="1657578849235" duration="14144000" />
       <workItem from="1657597186871" duration="5263000" />
       <workItem from="1657602784852" duration="1034000" />
-      <workItem from="1657635631111" duration="3667000" />
+      <workItem from="1657635631111" duration="3893000" />
+      <workItem from="1657640632229" duration="332000" />
     </task>
     <task id="LOCAL-00001" summary="Create Default Program">
       <created>1657568961274</created>
@@ -136,7 +131,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657602437753</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Working Program with Load File">
+      <created>1657639863528</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1657639863528</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -158,6 +160,7 @@
     <MESSAGE value="Made working data transfer" />
     <MESSAGE value="Pending Output" />
     <MESSAGE value="Working Program" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working Program" />
+    <MESSAGE value="Working Program with Load File" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working Program with Load File" />
   </component>
 </project>
