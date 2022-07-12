@@ -6,6 +6,6 @@ public class AccountFrame extends DefaultFrame {
     public AccountFrame(){
         accountPanel = new AccountPanel();
         this.getContentPane().add(accountPanel);
-        this.pack();
+        this.setSize(400, 850);
     }
 }
