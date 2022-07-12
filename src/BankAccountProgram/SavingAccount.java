@@ -26,6 +26,9 @@ public class SavingAccount extends Account implements SavingAccountInterface{
     public double calculateInterest() {
         return this.balance * this.interestRate;
     }
+    public double calculateInterest(double balance) {
+        return balance * this.interestRate;
+    }
 
     // Override base toString() method with proper fields
     @Override

@@ -36,10 +36,6 @@ public class AccountModel
         withdraw = 0.0;
     }
 
-    public String getFullName(){
-        return firstName + " " + lastName;
-    }
-
     public String getFirstName() {
         return firstName;
     }
@@ -136,20 +132,19 @@ public class AccountModel
         SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
         Date date = new Date();
         String currentDate = formatter.format(date);
-        int counter = getAccountIndex();
+        int i = getAccountIndex();
 
             try {
-
-                FileWriter newReceipt = new FileWriter("Account" + counter + "Receipt.txt");
-                double oldBalance = accountArrayList.get(counter-1).getBalance();
-                accountArrayList.get(counter-1).credit(deposit);
-                accountArrayList.get(counter-1).debit(withdraw);
-                double newBalance = accountArrayList.get(counter-1).getBalance();
+                FileWriter newReceipt = new FileWriter("/Users/gabrieltorres/Desktop/Java/AccountGUI/Account Receipts/Account"+i+"Receipt.txt");
+                double oldBalance = accountArrayList.get(i-1).getBalance();
+                accountArrayList.get(i-1).credit(deposit);
+                accountArrayList.get(i-1).debit(withdraw);
+                double newBalance = accountArrayList.get(i-1).getBalance();
 
                 newReceipt.write("----------------------------------------\n");
-                newReceipt.write("Account "+counter+" Receipt\n\n");
+                newReceipt.write("Account "+i+" Receipt\n\n");
                 newReceipt.write("Date of transaction: " + currentDate);
-                newReceipt.write("\nAccount Holder Name: " + accountArrayList.get(counter-1).getName());
+                newReceipt.write("\nAccount Holder Name: " + accountArrayList.get(i-1).getName());
                 if (getAccType() == 1){
                     newReceipt.write("\nAccount Type: Checking");
                 } else if (getAccType() == 2){
@@ -159,7 +154,7 @@ public class AccountModel
                 newReceipt.write("\nAmount deposited: $"+deposit);
                 // try/catch runs only if account is SavingAccount
                 try{
-                    double interest = ((SavingAccount) accountArrayList.get(counter-1)).calculateInterest();
+                    double interest = ((SavingAccount) accountArrayList.get(i-1)).calculateInterest(oldBalance);
                     newReceipt.write("\nCalculated interest: $" + df.format(interest));
                     newBalance += interest;
                 }
@@ -172,7 +167,7 @@ public class AccountModel
                 newReceipt.write("\nCurrent balance: $" + df.format(newBalance));
                 newReceipt.write("\n----------------------------------------");
                 newReceipt.close();
-                System.out.println("\nSuccessfully wrote to the file: Account"+counter+"Receipt.txt\n");
+                System.out.println("\nSuccessfully wrote to the file: Account"+i+"Receipt.txt\n");
             } catch (IOException e) {
                 System.out.println("An error occurred.");
                 e.printStackTrace();

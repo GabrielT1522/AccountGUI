@@ -1,6 +1,7 @@
 package DefaultFrame;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.io.File;
 import java.io.FileReader;
@@ -27,20 +28,15 @@ public class DefaultFrame extends JFrame
         menubar.add(fileMenu);
         menubar.add(helpMenu);
         JMenuItem loadItem = new JMenuItem("Load");
-        JMenuItem saveAsItem = new JMenuItem("Save As");
-        JMenuItem saveItem = new JMenuItem("Save");
         JMenuItem exitItem = new JMenuItem("Exit");
-        JMenuItem searchItem = new JMenuItem("Search");
         fileMenu.add(loadItem);
-        //fileMenu.add(saveAsItem);
-        //fileMenu.add(saveItem);
         fileMenu.addSeparator();
         fileMenu.add(exitItem);
-        //fileMenu.add(searchItem);
         JMenuItem helpItem = new JMenuItem("Help");
         JMenuItem aboutItem = new JMenuItem("About");
         helpMenu.add(helpItem);
         helpMenu.add(aboutItem);
+
         // Create a listener and add it to the menu items
         MenuListener menuList = new MenuListener(this);
         loadItem.addActionListener(menuList);
@@ -85,8 +81,13 @@ public class DefaultFrame extends JFrame
     }
     public void openFile() {
         if (chooser == null) {
-            chooser = new JFileChooser(new File("/Users/gabrieltorres/Desktop/Java/AccountGUI"));
+            chooser = new JFileChooser(new File("/Users/gabrieltorres/Desktop/Java/AccountGUI/Account Receipts"));
         }
+        // Allow only .txt files
+        chooser.setAcceptAllFileFilterUsed(false);
+        FileNameExtensionFilter filter = new FileNameExtensionFilter(".txt Files", "txt");
+        chooser.addChoosableFileFilter(filter);
+        //chooser.showOpenDialog(null);
         int returnVal = chooser.showOpenDialog(this);
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             selectedFile = chooser.getSelectedFile();

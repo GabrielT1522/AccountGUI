@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class AccountPanel extends JPanel {
 
-    private AccountModel accountModel = new AccountModel();
+    private final AccountModel accountModel = new AccountModel();
     static ArrayList<Account> accountArrayList = new ArrayList<>();
 
     // welcomePanel components
@@ -40,6 +40,7 @@ public class AccountPanel extends JPanel {
     private JLabel inBalanceLabel;
     private JTextField inBalanceField;
 
+    // alterPanel components
     private  JPanel alterBalancePanel;
     private JPanel alterBalanceNorthPanel;
     private JPanel alterBalanceCenterPanel;
@@ -48,7 +49,6 @@ public class AccountPanel extends JPanel {
     private JRadioButton withdrawButton;
     private JRadioButton depositButton;
     private JTextField alterBalanceField;
-    //private JButton submitButton;
     private ButtonGroup alterBalanceButtonGroup;
 
     public AccountPanel()
@@ -242,7 +242,7 @@ public class AccountPanel extends JPanel {
         if (e.getSource() == savingsButton)
         {
             accountModel.setAccType(2);
-            extraChargeLabel.setText("Enter the interest rate: $");
+            extraChargeLabel.setText("Enter the interest rate: ");
             System.out.println("Savings button selected.");
         }
     }
