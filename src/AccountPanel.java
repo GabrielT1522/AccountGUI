@@ -1,4 +1,5 @@
 import BankAccountProgram.Account;
+import DefaultFrame.DefaultFrame;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,6 +18,7 @@ public class AccountPanel extends JPanel {
     private JLabel welcomeMessage;
     private JLabel numOfAccountsLabel;
     private JLabel accountsToBeCreatedLabel;
+    private JLabel loadLabel;
     private JButton welcomeButton;
     private JTextField noOfAccountsField;
 
@@ -59,7 +61,7 @@ public class AccountPanel extends JPanel {
         welcomeSouthPanel = new JPanel();
 
         this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
-        this.setPreferredSize(new Dimension(400, 350));
+        this.setPreferredSize(new Dimension(400, 300));
 
         welcomeMessage = new JLabel("Hello! Welcome to my Bank Application");
         numOfAccountsLabel = new JLabel("Enter the number of accounts you want to create.");
@@ -76,11 +78,13 @@ public class AccountPanel extends JPanel {
         noOfAccountsField.setPreferredSize(new Dimension(50, 35));
         welcomeButton = new JButton("Create Accounts");
 
-        //welcomeSouthPanel.setLayout(new BoxLayout(welcomeSouthPanel, BoxLayout.Y_AXIS));
-        welcomeSouthPanel.setBackground(Color.lightGray);
+        loadLabel = new JLabel();
+        welcomeSouthPanel.setLayout(new BoxLayout(welcomeSouthPanel, BoxLayout.Y_AXIS));
+        //welcomeSouthPanel.setBackground(Color.lightGray);
         welcomeSouthPanel.add(noOfAccountsField);
         welcomeSouthPanel.add(welcomeButton);
         welcomeSouthPanel.add(accountsToBeCreatedLabel);
+        welcomeSouthPanel.add(loadLabel);
 
         welcomeButton.addActionListener(evt -> {
             String actionCommand = evt.getActionCommand();
@@ -97,6 +101,7 @@ public class AccountPanel extends JPanel {
                     System.out.println(numOfAccounts + " accounts will be created.\n");
                 }
 
+                openInput();
                 setAccountNumLabel(numOfAccounts);
             }
         });
@@ -104,7 +109,16 @@ public class AccountPanel extends JPanel {
         welcomePanel.add(welcomeCenterPanel);
         welcomePanel.add(welcomeSouthPanel);
         this.add(welcomePanel); // Finish welcomePanel
+    }
 
+    public void openInput()
+    {
+        DefaultFrame inputFrame = new DefaultFrame();
+        JPanel masterPanel = new JPanel();
+        inputFrame.setTitle("Input Account Information");
+        inputFrame.setSize(400,500);
+        inputFrame.setLocation(400,500);
+        inputFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         // Create inputPanel
         inputPanel = new JPanel();
         inputNorthPanel = new JPanel();
@@ -177,7 +191,7 @@ public class AccountPanel extends JPanel {
         depositButton = new JRadioButton("Deposit");
 
         alterBalanceNorthPanel.add(alterBalanceLabel, BorderLayout.PAGE_START);
-        alterBalanceNorthPanel.setPreferredSize(new Dimension(50, 10));
+        alterBalanceNorthPanel.setPreferredSize(new Dimension(200, 50));
         alterBalanceButtonGroup.add(withdrawButton);
         alterBalanceButtonGroup.add(depositButton);
         withdrawButton.addActionListener(this::alterBalanceActionPerformed);
@@ -218,6 +232,11 @@ public class AccountPanel extends JPanel {
                 depositButton.setSelected(false);
                 alterBalanceField.setText("");
 
+                if (accountModel.getAccountIndex()-1 >= accountModel.getNumOfAccounts()){
+                    inputFrame.setVisible(false);
+                    accountsToBeCreatedLabel.setText(accountModel.getNumOfAccounts() + " accounts have been created.");
+                    loadLabel.setText("Open \"File -> Load\" to access account receipts.");
+                }
             }
         });
 
@@ -226,8 +245,10 @@ public class AccountPanel extends JPanel {
         alterBalancePanel.add(alterBalanceNorthPanel);
         alterBalancePanel.add(alterBalanceCenterPanel);
         alterBalancePanel.add(alterBalanceSouthPanel);
-        this.add(inputPanel);
-        this.add(alterBalancePanel);
+        masterPanel.add(inputPanel);
+        masterPanel.add(alterBalancePanel);
+        inputFrame.getContentPane().add(masterPanel);
+        inputFrame.setVisible(true);
     }
 
     public void accTypeActionPerformed(ActionEvent e)

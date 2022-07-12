@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d018164f-13a9-48be-9a6e-dc99e6a24d6b" name="Changes" comment="Working Program with Load File">
+    <list default="true" id="d018164f-13a9-48be-9a6e-dc99e6a24d6b" name="Changes" comment="Added Calculator Menu">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DefaultFrame/DefaultFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DefaultFrame/DefaultFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DefaultFrame/MenuListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DefaultFrame/MenuListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AccountFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AccountFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AccountPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AccountPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,6 +90,9 @@
       <workItem from="1657635631111" duration="3893000" />
       <workItem from="1657640632229" duration="471000" />
       <workItem from="1657648566885" duration="1832000" />
+      <workItem from="1657650960055" duration="59000" />
+      <workItem from="1657653062343" duration="2729000" />
+      <workItem from="1657656140557" duration="1316000" />
     </task>
     <task id="LOCAL-00001" summary="Create Default Program">
       <created>1657568961274</created>
@@ -147,7 +150,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657641008850</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Added Calculator Menu">
+      <created>1657651006500</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1657651006500</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -170,6 +180,7 @@
     <MESSAGE value="Pending Output" />
     <MESSAGE value="Working Program" />
     <MESSAGE value="Working Program with Load File" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working Program with Load File" />
+    <MESSAGE value="Added Calculator Menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Calculator Menu" />
   </component>
 </project>
