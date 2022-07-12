@@ -44,7 +44,6 @@ public class AccountPanel extends JPanel {
     private JPanel alterBalanceNorthPanel;
     private JPanel alterBalanceCenterPanel;
     private JPanel alterBalanceSouthPanel;
-    public JLabel alterBalanceHeadingLabel;
     public JLabel alterBalanceLabel;
     private JRadioButton withdrawButton;
     private JRadioButton depositButton;

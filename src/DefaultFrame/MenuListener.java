@@ -5,25 +5,21 @@ import java.awt.event.ActionListener;
 
 public class MenuListener implements ActionListener
 {
-
-    private DefaultFrame helpMenu;
+    private final DefaultFrame defaultFrame;
     public MenuListener(DefaultFrame hm)
     {
-        helpMenu = hm;
+        defaultFrame = hm;
     }
     public void actionPerformed(ActionEvent evt)
     {
         String actionCommand = evt.getActionCommand();
 
-        if(actionCommand.equals("Help")) {
-            System.out.println("Help menu selected.");
-            this.helpMenu.setVisible(true);
-        }
-        else if(actionCommand.equals("Exit")){
-            System.exit(0);
-        }
-        else{
-            System.out.println("ERROR: unknown action command.");
+        switch (actionCommand) {
+            case "About" -> defaultFrame.openAbout();
+            case "Help" -> defaultFrame.openHelp();
+            case "Load" -> defaultFrame.openFile();
+            case "Exit" -> System.exit(0);
+            default -> System.out.println("ERROR: unknown action command.");
         }
     }
 }

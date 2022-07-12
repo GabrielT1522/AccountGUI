@@ -1,0 +1,6 @@
+Application Instructions and Conditions:
+
+1. Begin by entering the number of accounts that you want to create.
+2. Enter "Create Accounts" to confirm and update the application.
+
+

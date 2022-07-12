@@ -160,7 +160,7 @@ public class AccountModel
                 // try/catch runs only if account is SavingAccount
                 try{
                     double interest = ((SavingAccount) accountArrayList.get(counter-1)).calculateInterest();
-                    newReceipt.write("\nAccumulated interest: $" + df.format(interest));
+                    newReceipt.write("\nCalculated interest: $" + df.format(interest));
                     newBalance += interest;
                 }
                 catch (Exception e){

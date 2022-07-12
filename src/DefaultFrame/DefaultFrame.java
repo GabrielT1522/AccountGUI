@@ -1,11 +1,24 @@
 package DefaultFrame;
 
 import javax.swing.*;
+import java.awt.*;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class DefaultFrame extends JFrame
 {
+    private JFileChooser chooser;
+    private File selectedFile;
+    private JFrame loadFrame;
+    private JEditorPane loadPane;
+    private JFrame aboutFrame;
+    private JEditorPane aboutPane;
+    private JFrame helpFrame;
+    private JEditorPane helpPane;
     public DefaultFrame()
     {
+
         // Create menu bar, menus and menu items
         JMenuBar menubar = new JMenuBar();
         this.setJMenuBar(menubar);
@@ -18,7 +31,7 @@ public class DefaultFrame extends JFrame
         JMenuItem saveItem = new JMenuItem("Save");
         JMenuItem exitItem = new JMenuItem("Exit");
         JMenuItem searchItem = new JMenuItem("Search");
-        //fileMenu.add(loadItem);
+        fileMenu.add(loadItem);
         //fileMenu.add(saveAsItem);
         //fileMenu.add(saveItem);
         fileMenu.addSeparator();
@@ -30,13 +43,91 @@ public class DefaultFrame extends JFrame
         helpMenu.add(aboutItem);
         // Create a listener and add it to the menu items
         MenuListener menuList = new MenuListener(this);
+        loadItem.addActionListener(menuList);
         exitItem.addActionListener(menuList);
         helpItem.addActionListener(menuList);
+        aboutItem.addActionListener(menuList);
 
         //this.setResizable(false);
         this.setSize(450,350);
         this.setLocation(450,350);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        // Create loadFrame
+        loadFrame = new JFrame();
+        loadPane = new JEditorPane();
+        JScrollPane loadScrollPane = new JScrollPane(loadPane);
+        loadFrame.getContentPane().add(loadScrollPane, BorderLayout.CENTER);
+        loadFrame.setTitle("");
+        loadFrame.setSize(350,300);
+        loadFrame.setLocation(350,300);
+        loadFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+
+        // Create aboutFrame
+        aboutFrame = new JFrame();
+        aboutPane = new JEditorPane();
+        JScrollPane aboutScrollPane = new JScrollPane(aboutPane);
+        aboutFrame.getContentPane().add(aboutScrollPane, BorderLayout.CENTER);
+        aboutFrame.setTitle("About");
+        aboutFrame.setSize(295,200);
+        aboutFrame.setLocation(295,200);
+        aboutFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+
+        // Create helpFrame
+        helpFrame = new JFrame();
+        helpPane = new JEditorPane();
+        JScrollPane helpScrollPane = new JScrollPane(helpPane);
+        helpFrame.getContentPane().add(helpScrollPane, BorderLayout.CENTER);
+        helpFrame.setTitle("About");
+        helpFrame.setSize(450,300);
+        helpFrame.setLocation(450,300);
+        helpFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+    }
+    public void openFile() {
+        if (chooser == null) {
+            chooser = new JFileChooser(new File("/Users/gabrieltorres/Desktop/Java/AccountGUI"));
+        }
+        int returnVal = chooser.showOpenDialog(this);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            selectedFile = chooser.getSelectedFile();
+            try {
+                loadFrame.setVisible(true);
+                FileReader reader = new FileReader(selectedFile);
+                loadPane.read(reader, null);
+                System.out.println(selectedFile.getName() + " successfully opened.");
+                loadFrame.setTitle(selectedFile.getName());
+                reader.close();
+            } catch (IOException e) {
+                System.out.println("Problems opening or reading " + selectedFile.getName());
+            }
+        }//if
+        System.out.println("Menu item Load selected.");
+    }
+    public void openHelp(){
+        try {
+            helpFrame.setVisible(true);
+            FileReader reader = new FileReader("Help.txt");
+            helpPane.read(reader, null);
+            System.out.println("Help.txt successfully opened.");
+            helpFrame.setTitle("Help");
+            reader.close();
+        } catch (IOException e) {
+            System.out.println("Problems opening or reading Help.txt");
+        }
+        System.out.println("Menu item Help selected.");
+    }
+    public void openAbout(){
+        try {
+            aboutFrame.setVisible(true);
+            FileReader reader = new FileReader("About.txt");
+            aboutPane.read(reader, null);
+            System.out.println("About.txt successfully opened.");
+            aboutFrame.setTitle("About");
+            reader.close();
+        } catch (IOException e) {
+            System.out.println("Problems opening or reading About.txt");
+        }
+        System.out.println("Menu item About selected.");
     }
 
     // Makes the frame visible.
