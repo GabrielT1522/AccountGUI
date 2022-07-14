@@ -4,20 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d018164f-13a9-48be-9a6e-dc99e6a24d6b" name="Changes" comment="Added Frame show/hide">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqlDataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SavedAccounts/Admin.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SavedAccounts/User1234.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/AccountLogin/AccountLogin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/AccountLogin/AccountLoginModel.java" afterDir="false" />
+    <list default="true" id="d018164f-13a9-48be-9a6e-dc99e6a24d6b" name="Changes" comment="Added Account Login Frame">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SavedAccounts/User1234.txt" beforeDir="false" afterPath="$PROJECT_DIR$/SavedAccounts/User1234.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AccountDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AccountDriver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AccountFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AccountFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AccountPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AccountPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DefaultFrame/DefaultFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DefaultFrame/DefaultFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AccountLogin/AccountLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AccountLogin/AccountLogin.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,27 +39,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/gabrieltorres/Desktop/Java/AccountGUI&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "extract.method.default.visibility": "private",
+    "last_opened_file_path": "/Users/gabrieltorres/Desktop/Java/AccountGUI",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
@@ -117,7 +109,7 @@
       <workItem from="1657735853052" duration="1905000" />
       <workItem from="1657740346564" duration="1370000" />
       <workItem from="1657742739471" duration="2820000" />
-      <workItem from="1657811320099" duration="3431000" />
+      <workItem from="1657811320099" duration="9049000" />
     </task>
     <task id="LOCAL-00001" summary="Create Default Program">
       <created>1657568961274</created>
@@ -189,7 +181,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657657594277</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Added Account Login Frame">
+      <created>1657815625180</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1657815625180</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -214,6 +213,7 @@
     <MESSAGE value="Working Program with Load File" />
     <MESSAGE value="Added Calculator Menu" />
     <MESSAGE value="Added Frame show/hide" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Frame show/hide" />
+    <MESSAGE value="Added Account Login Frame" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Account Login Frame" />
   </component>
 </project>

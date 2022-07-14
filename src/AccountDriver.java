@@ -18,18 +18,4 @@ public class AccountDriver {
             accountFrame.hideIt();
         }
     }
-
-    /**
-     * Launch the application.
-     */
-    /*public static void main(String[] args) {
-        EventQueue.invokeLater(() -> {
-            try {
-                AccountLogin frame = new AccountLogin();
-                frame.setVisible(true);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
-    }*/
 }

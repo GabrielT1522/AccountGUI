@@ -4,6 +4,11 @@ import DefaultFrame.DefaultFrame;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Objects;
 
 import javax.swing.*;
 
@@ -23,6 +28,8 @@ public class AccountLogin extends DefaultFrame {
     private JRadioButton userLoginButton;
     private ButtonGroup loginButtonGroup;
     private JButton loginButton;
+    private Font headingFont = new Font("Times New Roman", Font.BOLD, 20);
+    private Font normalFont = new Font("Times New Roman", Font.PLAIN, 15);
     private AccountLoginModel accountLoginModel = new AccountLoginModel();
 
 
@@ -35,8 +42,9 @@ public class AccountLogin extends DefaultFrame {
 
         userLoginTypeLabel = new JLabel("Login as Admin or User?");
         userLoginTypeLabel.setForeground(Color.BLACK);
-        userLoginTypeLabel.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+        userLoginTypeLabel.setFont(headingFont);
         pageStartPanel.add(userLoginTypeLabel, BorderLayout.PAGE_START);
+
 
         loginButtonGroup = new ButtonGroup();
         userLoginButton = new JRadioButton("User");
@@ -47,6 +55,9 @@ public class AccountLogin extends DefaultFrame {
         adminLoginButton.addActionListener(this::userLoginActionPerformed);
         userLoginButton.setSelected(false);
         adminLoginButton.setSelected(false);
+
+        userLoginButton.setFont(normalFont);
+        adminLoginButton.setFont(normalFont);
 
         centerPanel.add(userLoginButton);
         centerPanel.add(adminLoginButton);
@@ -71,14 +82,11 @@ public class AccountLogin extends DefaultFrame {
         loginButton = new JButton("Login");
         //loginButton.setFont(new Font("Times New Roman", Font.PLAIN, 15));
         loginButton.addActionListener(e -> {
-            String accountID = usernameField.getText();
-            String password = passwordField.getText();
-
-            // Add Account login button logic
+            accountLogin();
         });
 
         pageEndPanel.add(loginButton, BorderLayout.PAGE_END);
-        loginLabel = new JLabel("test");
+        loginLabel = new JLabel("");
         pageEndPanel.add(loginLabel);
         mainPanel.add(pageStartPanel);
         mainPanel.add(centerPanel);
@@ -104,5 +112,47 @@ public class AccountLogin extends DefaultFrame {
             System.out.println("Admin button selected.");
         }
 
+    }
+
+    public void accountLogin(){
+        String accountID = usernameField.getText();
+        String password = passwordField.getText();
+
+        if (accountLoginModel.getUserLoginType() == 1){
+            try{
+                Path accFile = Path.of("/Users/gabrieltorres/Desktop/Java/AccountGUI/SavedAccounts/User1234.txt");
+                processLogin(accountID, password, accFile);
+            }
+            catch(IOException exc){
+                throw new RuntimeException();
+            }
+        }
+        else if (accountLoginModel.getUserLoginType() == 2){
+            try{
+                Path adminFile = Path.of("/Users/gabrieltorres/Desktop/Java/AccountGUI/SavedAccounts/Admin.txt");
+                processLogin(accountID, password, adminFile);
+            }
+            catch(IOException exc){
+                throw new RuntimeException();
+            }
+        }
+        else{
+            System.out.println("Something went wrong.");
+        }
+    }
+
+    private void processLogin(String accountID, String password, Path accFile) throws IOException {
+        String accountIDLine = Files.readAllLines(accFile).get(1);
+        String passwordLine = Files.readAllLines(accFile).get(2);
+        if (Objects.equals(accountID, accountIDLine) && Objects.equals(password, passwordLine)){
+            System.out.println("You have successfully logged in.");
+            loginLabel.setForeground(Color.BLACK);
+            loginLabel.setText("You have successfully logged in.");
+        }
+        else{
+            System.out.println("Invalid Username or Password.");
+            loginLabel.setForeground(Color.RED);
+            loginLabel.setText("Invalid Username or Password.");
+        }
     }
 }
