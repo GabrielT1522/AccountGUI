@@ -4,7 +4,9 @@ import DefaultFrame.DefaultFrame;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class AccountPanel extends JPanel {
 
@@ -12,6 +14,7 @@ public class AccountPanel extends JPanel {
     static ArrayList<Account> accountArrayList = new ArrayList<>();
 
     // welcomePanel components
+    private Timer welcomeTimer;
     private JPanel welcomePanel;
     private JPanel welcomeCenterPanel;
     private JPanel welcomeSouthPanel;
@@ -23,6 +26,7 @@ public class AccountPanel extends JPanel {
     private JTextField noOfAccountsField;
 
     // inputPanel components
+    //private Timer inputTimer;
     private JPanel inputPanel;
     private JPanel inputNorthPanel;
     private JPanel inputCenterPanel;
@@ -41,6 +45,10 @@ public class AccountPanel extends JPanel {
     private JTextField extraChargeField;
     private JLabel inBalanceLabel;
     private JTextField inBalanceField;
+    private JLabel accountIDLabel;
+    private JTextField accountIDField;
+    private JLabel passwordLabel;
+    private JTextField passwordField;
 
     // alterPanel components
     private  JPanel alterBalancePanel;
@@ -86,10 +94,26 @@ public class AccountPanel extends JPanel {
         welcomeSouthPanel.add(accountsToBeCreatedLabel);
         welcomeSouthPanel.add(loadLabel);
 
+        // Auto-update timer
+        int delay = 1000; //milliseconds
+        ActionListener taskPerformer = evt -> {
+            if (Objects.equals(noOfAccountsField.getText(), "0")) {
+                accountsToBeCreatedLabel.setText("You can not create 0 accounts.");
+                accountsToBeCreatedLabel.setForeground(Color.RED);
+            }
+            else{
+                accountsToBeCreatedLabel.setForeground(Color.BLACK);
+                accountsToBeCreatedLabel.setText("---");
+            }
+        };
+        welcomeTimer = new Timer(delay, taskPerformer);
+        welcomeTimer.start();
+
         welcomeButton.addActionListener(evt -> {
             String actionCommand = evt.getActionCommand();
             if (actionCommand.equals("Create Accounts")) {
 
+                welcomeTimer.stop();
                 int numOfAccounts = Integer.parseInt(noOfAccountsField.getText());
                 accountModel.setNumOfAccounts(numOfAccounts);
 
@@ -105,7 +129,6 @@ public class AccountPanel extends JPanel {
                 setAccountNumLabel(numOfAccounts);
             }
         });
-
         welcomePanel.add(welcomeCenterPanel);
         welcomePanel.add(welcomeSouthPanel);
         this.add(welcomePanel); // Finish welcomePanel
@@ -133,25 +156,37 @@ public class AccountPanel extends JPanel {
         accountNumLabel = new JLabel("Account 1");
         inputNorthPanel.add(accountNumLabel);
 
+        accountIDLabel = new JLabel("Account ID:");
+        accountIDField = new JTextField();
+
+        passwordLabel = new JLabel("Password:");
+        passwordField = new JTextField();
+
         fNameLabel = new JLabel("First Name: ");
         fNameField = new JTextField();
+
+        lNameLabel = new JLabel("Last Name: ");
+        lNameField = new JTextField();
 
         inputButtonGroup = new ButtonGroup();
         accTypeLabel = new JLabel("Type of Account? ");
         savingsButton = new JRadioButton("Savings");
         checkingButton = new JRadioButton("Checking");
 
-        lNameLabel = new JLabel("Last Name: ");
-        lNameField = new JTextField();
-
         extraChargeLabel = new JLabel("---");
-        extraChargeField = new JTextField();
+        extraChargeField = new JTextField("");
 
         inBalanceLabel = new JLabel("Initial Balance: $");
         inBalanceField = new JTextField();
 
-        inputCenterPanel.setSize(new Dimension(100, 250));
+        inputCenterPanel.setSize(new Dimension(100, 350));
         inputCenterPanel.setLayout(gridLayout);
+
+        inputCenterPanel.add(accountIDLabel);
+        inputCenterPanel.add(accountIDField);
+
+        inputCenterPanel.add(passwordLabel);
+        inputCenterPanel.add(passwordField);
 
         inputCenterPanel.add(fNameLabel);
         inputCenterPanel.add(fNameField);
@@ -207,6 +242,21 @@ public class AccountPanel extends JPanel {
         alterBalanceCenterPanel.add(alterBalanceLabel);
         alterBalanceCenterPanel.add(alterBalanceField);
 
+        /* Auto-update timer
+        int delay = 1000; //milliseconds
+        ActionListener taskPerformer = evt -> {
+            //if (Objects.equals(extraChargeField.getText(), "0"))
+            if (extraCharge < 0.00 || extraCharge > 1.00){
+                extraChargeLabel.setText("Interest must be between 0 and 1.");
+                extraChargeLabel.setForeground(Color.RED);
+            }
+            else{
+                extraChargeLabel.setForeground(Color.BLACK);
+                extraChargeLabel.setText("---");
+            }
+        };
+        inputTimer = new Timer(delay, taskPerformer);
+        inputTimer.start();*/
 
         JButton inputSubmitButton = new JButton("Submit");
         alterBalanceSouthPanel.add(inputSubmitButton);
@@ -240,19 +290,22 @@ public class AccountPanel extends JPanel {
             }
         });
 
+
+        masterPanel.setBackground(Color.darkGray);
         inputPanel.add(inputNorthPanel);
         inputPanel.add(inputCenterPanel);
         alterBalancePanel.add(alterBalanceNorthPanel);
         alterBalancePanel.add(alterBalanceCenterPanel);
         alterBalancePanel.add(alterBalanceSouthPanel);
         masterPanel.add(inputPanel);
-        masterPanel.add(alterBalancePanel);
+        //masterPanel.add(alterBalancePanel);
         inputFrame.getContentPane().add(masterPanel);
         inputFrame.setVisible(true);
     }
 
     public void accTypeActionPerformed(ActionEvent e)
     {
+
         if (e.getSource() == checkingButton)
         {
             accountModel.setAccType(1);
@@ -266,6 +319,7 @@ public class AccountPanel extends JPanel {
             extraChargeLabel.setText("Enter the interest rate: ");
             System.out.println("Savings button selected.");
         }
+
     }
 
     public void alterBalanceActionPerformed(ActionEvent e)

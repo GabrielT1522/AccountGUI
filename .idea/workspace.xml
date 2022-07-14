@@ -4,10 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d018164f-13a9-48be-9a6e-dc99e6a24d6b" name="Changes" comment="Added Calculator Menu">
+    <list default="true" id="d018164f-13a9-48be-9a6e-dc99e6a24d6b" name="Changes" comment="Added Frame show/hide">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqlDataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SavedAccounts/Admin.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SavedAccounts/User1234.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/AccountLogin/AccountLogin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/AccountLogin/AccountLoginModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AccountDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AccountDriver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AccountFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AccountFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AccountPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AccountPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DefaultFrame/DefaultFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DefaultFrame/DefaultFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +38,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2BoKm8TXNMECDSrcGiQuD6PmDyO" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -50,7 +60,13 @@
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
+    ]
   }
 }</component>
   <component name="RecentsManager">
@@ -92,7 +108,16 @@
       <workItem from="1657648566885" duration="1832000" />
       <workItem from="1657650960055" duration="59000" />
       <workItem from="1657653062343" duration="2729000" />
-      <workItem from="1657656140557" duration="1316000" />
+      <workItem from="1657656140557" duration="1404000" />
+      <workItem from="1657657672876" duration="72000" />
+      <workItem from="1657663434542" duration="2510000" />
+      <workItem from="1657675057926" duration="7651000" />
+      <workItem from="1657722700822" duration="41000" />
+      <workItem from="1657728944902" duration="1840000" />
+      <workItem from="1657735853052" duration="1905000" />
+      <workItem from="1657740346564" duration="1370000" />
+      <workItem from="1657742739471" duration="2820000" />
+      <workItem from="1657811320099" duration="3431000" />
     </task>
     <task id="LOCAL-00001" summary="Create Default Program">
       <created>1657568961274</created>
@@ -157,7 +182,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657651006500</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Added Frame show/hide">
+      <created>1657657594277</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1657657594277</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -181,6 +213,7 @@
     <MESSAGE value="Working Program" />
     <MESSAGE value="Working Program with Load File" />
     <MESSAGE value="Added Calculator Menu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Calculator Menu" />
+    <MESSAGE value="Added Frame show/hide" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Frame show/hide" />
   </component>
 </project>
