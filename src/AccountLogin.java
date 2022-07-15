@@ -1,13 +1,11 @@
-package AccountLogin;
-
 import DefaultFrame.DefaultFrame;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Objects;
 
 import javax.swing.*;
@@ -63,30 +61,31 @@ public class AccountLogin extends DefaultFrame {
         centerPanel.add(adminLoginButton);
 
         usernameLabel = new JLabel("---");
-        //usernameLabel.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+        usernameLabel.setFont(normalFont);
         centerPanel.add(usernameLabel);
 
         usernameField = new JTextField();
-        //usernameField.setFont(new Font("Times New Roman", Font.PLAIN, 15));
+        usernameField.setFont(normalFont);
         centerPanel.add(usernameField);
 
         passwordLabel = new JLabel("Password");
-        //passwordLabel.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+        passwordLabel.setFont(normalFont);
         centerPanel.add(passwordLabel);
 
         passwordField = new JPasswordField();
-        //passwordField.setFont(new Font("Times New Roman", Font.PLAIN, 15));
+        passwordField.setFont(normalFont);
         centerPanel.add(passwordField);
 
         pageEndPanel = new JPanel();
         loginButton = new JButton("Login");
-        //loginButton.setFont(new Font("Times New Roman", Font.PLAIN, 15));
+        loginButton.setFont(normalFont);
         loginButton.addActionListener(e -> {
             accountLogin();
         });
 
         pageEndPanel.add(loginButton, BorderLayout.PAGE_END);
         loginLabel = new JLabel("");
+        loginLabel.setFont(normalFont);
         pageEndPanel.add(loginLabel);
         mainPanel.add(pageStartPanel);
         mainPanel.add(centerPanel);
@@ -120,8 +119,18 @@ public class AccountLogin extends DefaultFrame {
 
         if (accountLoginModel.getUserLoginType() == 1){
             try{
-                Path accFile = Path.of("/Users/gabrieltorres/Desktop/Java/AccountGUI/SavedAccounts/User1234.txt");
-                processLogin(accountID, password, accFile);
+                File dir = new File("/Users/gabrieltorres/Desktop/Java/AccountGUI/SavedAccounts");
+                File[] directoryListing = dir.listFiles();
+                if (directoryListing != null) {
+                    for (File child : directoryListing) {
+                        Path accFile = Path.of(child.getAbsolutePath());
+                        processLogin(accountID, password, accFile);
+                    }
+                } else {
+                    throw new RuntimeException("No directory found.");
+                }
+                //Path accFile = Path.of("/Users/gabrieltorres/Desktop/Java/AccountGUI/SavedAccounts/User1234.txt");
+                //processLogin(accountID, password, accFile);
             }
             catch(IOException exc){
                 throw new RuntimeException();
@@ -145,14 +154,16 @@ public class AccountLogin extends DefaultFrame {
         String accountIDLine = Files.readAllLines(accFile).get(1);
         String passwordLine = Files.readAllLines(accFile).get(2);
         if (Objects.equals(accountID, accountIDLine) && Objects.equals(password, passwordLine)){
-            System.out.println("You have successfully logged in.");
+            System.out.println("Logged in to account #"+accountID);
             loginLabel.setForeground(Color.BLACK);
             loginLabel.setText("You have successfully logged in.");
+            accountLoginModel.setLoginAccess(1);
         }
         else{
-            System.out.println("Invalid Username or Password.");
+            System.out.println("Invalid Username or Password");
             loginLabel.setForeground(Color.RED);
             loginLabel.setText("Invalid Username or Password.");
+            accountLoginModel.setLoginAccess(2);
         }
     }
 }
