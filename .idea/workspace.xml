@@ -4,19 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d018164f-13a9-48be-9a6e-dc99e6a24d6b" name="Changes" comment="Account Login Logic Iterates through Directory">
-      <change afterPath="$PROJECT_DIR$/src/AccountLogin/AccountLoginFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/AccountLogin/AccountLoginModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UserAccount/UserAccountPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+    <list default="true" id="d018164f-13a9-48be-9a6e-dc99e6a24d6b" name="Changes" comment="Start User Account Interface Development">
+      <change afterPath="$PROJECT_DIR$/src/AdminAccount/AddAccountPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SavedAccounts/Admin.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Admin.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SavedAccounts/User1234.txt" beforeDir="false" afterPath="$PROJECT_DIR$/SavedAccounts/User1234.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AccountDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AccountDriver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AccountFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AdminAccount/AccountFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AccountLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AccountLogin/AccountLoginPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AccountLoginModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AccountModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AdminAccount/AccountModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AccountPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AdminAccount/AccountPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AccountLogin/AccountLoginFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AccountLogin/AccountLoginFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AccountLogin/AccountLoginPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AccountLogin/AccountLoginPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AdminAccount/AccountPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AdminAccount/AccountPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UserAccount/UserAccountPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserAccount/UserAccountPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +58,9 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -72,6 +72,9 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="" />
@@ -124,7 +127,8 @@
       <workItem from="1657940092958" duration="677000" />
       <workItem from="1658031245312" duration="463000" />
       <workItem from="1658158889157" duration="2754000" />
-      <workItem from="1658190195001" duration="3439000" />
+      <workItem from="1658190195001" duration="9530000" />
+      <workItem from="1658245634441" duration="1123000" />
     </task>
     <task id="LOCAL-00001" summary="Create Default Program">
       <created>1657568961274</created>
@@ -217,7 +221,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657910903379</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Start User Account Interface Development">
+      <created>1658198481083</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1658198481083</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -245,6 +256,7 @@
     <MESSAGE value="Added Account Login Frame" />
     <MESSAGE value="Added Account Login Logic" />
     <MESSAGE value="Account Login Logic Iterates through Directory" />
-    <option name="LAST_COMMIT_MESSAGE" value="Account Login Logic Iterates through Directory" />
+    <MESSAGE value="Start User Account Interface Development" />
+    <option name="LAST_COMMIT_MESSAGE" value="Start User Account Interface Development" />
   </component>
 </project>

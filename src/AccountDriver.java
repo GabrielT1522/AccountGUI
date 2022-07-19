@@ -10,7 +10,6 @@ public class AccountDriver {
         AccountModel accountModel = new AccountModel();
 
         accountLoginFrame.showIt("Account Login");
-
         if (accountModel.getAccountIndex() <= accountModel.getNumOfAccounts()){
             accountFrame.hideIt();
         }

@@ -2,6 +2,7 @@ package AccountLogin;
 
 import DefaultFrame.DefaultFrame;
 import AdminAccount.AccountPanel;
+import UserAccount.UserAccountPanel;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -81,9 +82,7 @@ public class AccountLoginPanel extends JPanel {
         pageEndPanel = new JPanel();
         loginButton = new JButton("Login");
         loginButton.setFont(normalFont);
-        loginButton.addActionListener(e -> {
-            accountLogin();
-        });
+        loginButton.addActionListener(e -> accountLogin());
 
         pageEndPanel.add(loginButton, BorderLayout.PAGE_END);
         loginLabel = new JLabel("");
@@ -93,17 +92,6 @@ public class AccountLoginPanel extends JPanel {
         mainPanel.add(centerPanel);
         mainPanel.add(pageEndPanel);
         this.add(mainPanel);
-
-
-        if (accountLoginModel.getLoginAccess()) {
-            DefaultFrame accountFrame = new DefaultFrame();
-            AccountPanel accountPanel = new AccountPanel();
-            accountFrame.getContentPane().add(accountPanel);
-            //this.setSize(450, 250);
-            accountFrame.pack();
-            accountFrame.showIt("Create Accounts");
-            System.out.println("Account frame should be open.");
-        }
     }
 
     public void userLoginActionPerformed(ActionEvent e)
@@ -130,6 +118,7 @@ public class AccountLoginPanel extends JPanel {
         String accountID = usernameField.getText();
         String password = passwordField.getText();
 
+
         if (accountLoginModel.getUserLoginType() == 1){
             try{
                 File dir = new File("/Users/gabrieltorres/Desktop/Java/AccountGUI/SavedAccounts");
@@ -149,7 +138,7 @@ public class AccountLoginPanel extends JPanel {
         }
         else if (accountLoginModel.getUserLoginType() == 2){
             try{
-                Path adminFile = Path.of("/Users/gabrieltorres/Desktop/Java/AccountGUI/SavedAccounts/Admin.txt");
+                Path adminFile = Path.of("/Users/gabrieltorres/Desktop/Java/AccountGUI/Admin.txt");
                 processLogin(accountID, password, adminFile);
             }
             catch(IOException exc){
@@ -173,12 +162,25 @@ public class AccountLoginPanel extends JPanel {
             accountLoginModel.setAccountFileName(accountFileName);
             accountLoginModel.setLoginAccess(true);
 
-            DefaultFrame accountFrame = new DefaultFrame();
-            AccountPanel accountPanel = new AccountPanel();
-            accountFrame.getContentPane().add(accountPanel);
-            accountFrame.setSize(450, 250);
-            accountFrame.pack();
-            accountFrame.showIt("Create Accounts");
+            if (accountLoginModel.getLoginAccess()) {
+                DefaultFrame accountFrame = new DefaultFrame();
+                AccountPanel accountPanel = new AccountPanel();
+                UserAccountPanel userAccountPanel = new UserAccountPanel();
+
+                if (accountLoginModel.getUserLoginType() == 1) {
+                    accountFrame.getContentPane().add(userAccountPanel);
+                    accountFrame.showIt("User Account");
+                }
+                else if (accountLoginModel.getUserLoginType() == 2){
+                    accountFrame.getContentPane().add(accountPanel);
+                    accountFrame.showIt("Admin Account");
+                }
+                else{
+                    System.out.println("Error opening account.");
+                }
+
+                accountFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+            }
         }
         else{
             System.out.println("Invalid Username or Password for account "+accountIDLine);
