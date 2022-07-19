@@ -1,3 +1,5 @@
+package AdminAccount;
+
 import BankAccountProgram.Account;
 import DefaultFrame.DefaultFrame;
 
@@ -298,6 +300,7 @@ public class AccountPanel extends JPanel {
         alterBalancePanel.add(alterBalanceCenterPanel);
         alterBalancePanel.add(alterBalanceSouthPanel);
         masterPanel.add(inputPanel);
+        masterPanel.add(alterBalancePanel);
         //masterPanel.add(alterBalancePanel);
         inputFrame.getContentPane().add(masterPanel);
         inputFrame.setVisible(true);
@@ -305,7 +308,6 @@ public class AccountPanel extends JPanel {
 
     public void accTypeActionPerformed(ActionEvent e)
     {
-
         if (e.getSource() == checkingButton)
         {
             accountModel.setAccType(1);

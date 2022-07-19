@@ -1,4 +1,7 @@
+package AccountLogin;
+
 import DefaultFrame.DefaultFrame;
+import AdminAccount.AccountPanel;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -10,7 +13,7 @@ import java.util.Objects;
 
 import javax.swing.*;
 
-public class AccountLogin extends DefaultFrame {
+public class AccountLoginPanel extends JPanel {
 
     private JTextField usernameField;
     private JPasswordField passwordField;
@@ -28,10 +31,9 @@ public class AccountLogin extends DefaultFrame {
     private JButton loginButton;
     private Font headingFont = new Font("Times New Roman", Font.BOLD, 20);
     private Font normalFont = new Font("Times New Roman", Font.PLAIN, 15);
-    private AccountLoginModel accountLoginModel = new AccountLoginModel();
+    AccountLoginModel accountLoginModel = new AccountLoginModel();
 
-
-    public AccountLogin() {
+    public AccountLoginPanel() {
         mainPanel = new JPanel();
         pageStartPanel = new JPanel();
         centerPanel = new JPanel();
@@ -91,6 +93,17 @@ public class AccountLogin extends DefaultFrame {
         mainPanel.add(centerPanel);
         mainPanel.add(pageEndPanel);
         this.add(mainPanel);
+
+
+        if (accountLoginModel.getLoginAccess()) {
+            DefaultFrame accountFrame = new DefaultFrame();
+            AccountPanel accountPanel = new AccountPanel();
+            accountFrame.getContentPane().add(accountPanel);
+            //this.setSize(450, 250);
+            accountFrame.pack();
+            accountFrame.showIt("Create Accounts");
+            System.out.println("Account frame should be open.");
+        }
     }
 
     public void userLoginActionPerformed(ActionEvent e)
@@ -129,8 +142,6 @@ public class AccountLogin extends DefaultFrame {
                 } else {
                     throw new RuntimeException("No directory found.");
                 }
-                //Path accFile = Path.of("/Users/gabrieltorres/Desktop/Java/AccountGUI/SavedAccounts/User1234.txt");
-                //processLogin(accountID, password, accFile);
             }
             catch(IOException exc){
                 throw new RuntimeException();
@@ -150,20 +161,30 @@ public class AccountLogin extends DefaultFrame {
         }
     }
 
-    private void processLogin(String accountID, String password, Path accFile) throws IOException {
+    public void processLogin(String accountID, String password, Path accFile) throws IOException {
         String accountIDLine = Files.readAllLines(accFile).get(1);
         String passwordLine = Files.readAllLines(accFile).get(2);
+        String accountFileName = String.valueOf(accFile);
+
         if (Objects.equals(accountID, accountIDLine) && Objects.equals(password, passwordLine)){
-            System.out.println("Logged in to account #"+accountID);
+            System.out.println("Logged in to account "+accountID);
             loginLabel.setForeground(Color.BLACK);
             loginLabel.setText("You have successfully logged in.");
-            accountLoginModel.setLoginAccess(1);
+            accountLoginModel.setAccountFileName(accountFileName);
+            accountLoginModel.setLoginAccess(true);
+
+            DefaultFrame accountFrame = new DefaultFrame();
+            AccountPanel accountPanel = new AccountPanel();
+            accountFrame.getContentPane().add(accountPanel);
+            accountFrame.setSize(450, 250);
+            accountFrame.pack();
+            accountFrame.showIt("Create Accounts");
         }
         else{
-            System.out.println("Invalid Username or Password");
+            System.out.println("Invalid Username or Password for account "+accountIDLine);
             loginLabel.setForeground(Color.RED);
             loginLabel.setText("Invalid Username or Password.");
-            accountLoginModel.setLoginAccess(2);
+            accountLoginModel.setLoginAccess(false);
         }
     }
 }

@@ -1,19 +1,15 @@
-public class AccountDriver {
+import AccountLogin.AccountLoginFrame;
+import AdminAccount.AccountFrame;
+import AdminAccount.AccountModel;
 
-    static AccountLogin accountLogin = new AccountLogin();
-    static AccountLoginModel accountLoginModel = new AccountLoginModel();
-    static AccountFrame accountFrame = new AccountFrame();
-    static AccountModel accountModel = new AccountModel();
+public class AccountDriver {
     public static void main(String[] args)
     {
-        accountLogin.showIt("Account Login");
+        AccountLoginFrame accountLoginFrame = new AccountLoginFrame();
+        AccountFrame accountFrame = new AccountFrame();
+        AccountModel accountModel = new AccountModel();
 
-
-        if (accountLoginModel.getLoginAccess() == 1) {
-            accountFrame.showIt("Create Accounts");
-            accountLogin.hideIt();
-            System.out.println("Account frame should be open.");
-        }
+        accountLoginFrame.showIt("Account Login");
 
         if (accountModel.getAccountIndex() <= accountModel.getNumOfAccounts()){
             accountFrame.hideIt();

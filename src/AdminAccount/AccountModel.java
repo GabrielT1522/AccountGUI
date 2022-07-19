@@ -1,3 +1,5 @@
+package AdminAccount;
+
 import BankAccountProgram.*;
 
 import java.io.FileWriter;
@@ -173,6 +175,5 @@ public class AccountModel
                 e.printStackTrace();
                 throw new RuntimeException(e);
             }
-
     }
 }
